@@ -44,15 +44,31 @@ const CardList = (card: CardProps) => {
   }
 ]
 )
-  return (
-<div className="CardsList">
-{cards.map(
-  card=>(
-    <Card Id={card.Id} Titre={card.Titre} Description={card.Description} Price={card.Price}></Card>
-  )
-)}
+const [search, setSearch] = useState<string>('');
 
-</div>
+  // search cards based on the search value
+  const searchedCards = cards.filter(card =>
+    card.Titre.toLowerCase().includes(search.toLowerCase()) ||
+    card.Description.toLowerCase().includes(search.toLowerCase())||
+    card.Price.toString().toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+<div>          
+  <input
+        type="text"
+        placeholder="Search cards..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="search-input"
+      />
+    <div className="CardsList">
+
+      {searchedCards.map(card => (
+        <Card key={card.Id} {...card} />
+      ))}
+    </div>
+    </div>
   )
 }
 
