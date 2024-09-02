@@ -2,17 +2,17 @@ export interface Movie {
   backdrop_path: string;
   id: number;
   title: string;
-  originalTitle: string;
+  original_title: string;
   overview: string;
   poster_path: string;
-  mediaType: string;
+  media_type: string;
   adult: boolean;
-  originalLanguage: string;
-  genreIds: number[];
+  original_language: string;
+  genre_ids: number[];
   popularity: number;
-  releaseDate: string;
+  release_date: string;
   video: boolean;
-  voteAverage: number;
-  voteCount: number;
+  vote_average: number;
+  vote_count: number;
   name: string;
 }

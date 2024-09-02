@@ -49,6 +49,13 @@
     fill: #bdbecb;
     width: 1rem;
     height: 1rem;
-    pointer-events: none;
+    cursor: pointer;
     z-index: 1;
+}
+
+.search-button {
+    border: none;
+    outline: none;
+    background: transparent;
+
 }
