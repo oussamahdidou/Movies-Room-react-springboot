@@ -1,20 +1,16 @@
 import axios from 'axios';
+import { Movie } from '../Interfaces/Movie';
 
-export const SearchCards = async () => {
+const apiKey = process.env.REACT_APP_API_KEY; // Make sure your .env file is correctly set up
+
+export const TodayTrends = async (): Promise<Movie[]> => {
   try {
-    const apiKey = process.env.REACT_APP_API_KEY; // Use the correct environment variable
     console.log('API Key:', apiKey); // Log the API Key
-    const response = await axios.get<any>(`https://api.themoviedb.org/3/movie/popular`, {
-      params: {
-        api_key: apiKey,
-        language: 'en-US',
-        page: 1,
-      },
-    });
-    console.log('API Response:', response.data); // Log the API response
+    const response = await axios.get<any>(`https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}&page=1`);
+    console.log('API Response:', response.data);
     return response.data.results;
   } catch (error) {
-    console.error('Error in SearchCards:', error);
+    console.error('Error in TodayTrends:', error);
     return []; // Return an empty array on error
   }
 }

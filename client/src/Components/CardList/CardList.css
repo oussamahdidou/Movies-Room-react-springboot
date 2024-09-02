@@ -1,9 +1,5 @@
 .CardsList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    justify-content: center;
-    align-items: center;
+    background-color: rgb(5, 12, 29);
 }
 
 /* From Uiverse.io by LightAndy1 */
@@ -12,7 +8,7 @@
     line-height: 28px;
     align-items: center;
     position: relative;
-    max-width: 190px;
+    width: 500px;
 }
 
 .input {
