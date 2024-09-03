@@ -1,12 +1,72 @@
 import axios from 'axios';
-import { Movie } from '../Interfaces/Movie';
+import { DetailMovie, Movie, MovieCredits, MovieTrailer } from '../Interfaces/Movie';
 
 const apiKey = process.env.REACT_APP_API_KEY; 
 
-export const TodayTrends = async (): Promise<Movie[]> => {
+export const TodayTrends = async (Periode:string): Promise<Movie[]> => {
   try {
     console.log('API Key:', apiKey); 
-    const response = await axios.get<any>(`https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}&page=1`);
+    const response = await axios.get<any>(`https://api.themoviedb.org/3/trending/all/${Periode}?api_key=${apiKey}&page=1`);
+    console.log('API Response:', response.data);
+    return response.data.results;
+  } catch (error) {
+    console.error('Error in TodayTrends:', error);
+    return []; 
+  }
+}
+export const SearchMovies = async (Query:string):Promise<Movie[]> => {
+  try {
+     const response = await axios.get<any>(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${Query}&page=1`);
+    console.log('API Response:', response.data);
+    return response.data.results;
+  } catch (error) {
+    console.error('Error in TodayTrends:', error);
+    return []; 
+  }
+}
+export const MovieDetaill = async (Id:number):Promise<DetailMovie|null> => {
+  try {
+     const response = await axios.get<any>(`https://api.themoviedb.org/3/movie/${Id}?api_key=${apiKey}`);
+    console.log('API Response:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error in TodayTrends:', error);
+    return null; 
+  }
+}
+export const GetMovieCredits = async (Id:number):Promise<MovieCredits|null> => {
+  try {
+     const response = await axios.get<any>(`https://api.themoviedb.org/3/movie/${Id}/credits?api_key=${apiKey}`);
+    console.log('API Response:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error in TodayTrends:', error);
+    return null; 
+  }
+}
+export const GetMovieTrailers = async (Id:number):Promise<MovieTrailer[]> => {
+  try {
+     const response = await axios.get<any>(`https://api.themoviedb.org/3/movie/${Id}/videos?api_key=${apiKey}`);
+    console.log('API Response:', response.data);
+    return response.data.results;
+  } catch (error) {
+    console.error('Error in TodayTrends:', error);
+    return []; 
+  }
+}
+export const SimilarMovies = async (Id:number):Promise<Movie[]> => {
+  try {
+     const response = await axios.get<any>(`https://api.themoviedb.org/3/movie/${Id}/similar?api_key=${apiKey}`);
+    console.log('API Response:', response.data);
+    return response.data.results;
+  } catch (error) {
+    console.error('Error in TodayTrends:', error);
+    return []; 
+  }
+}
+export const MoviesRecommandations = async (Id:number):Promise<Movie[]> => {
+  try {
+     const response = await axios.get<any>(`https://api.themoviedb.org/3/movie/${Id}/recommendations?api_key=${apiKey}`);
     console.log('API Response:', response.data);
     return response.data.results;
   } catch (error) {

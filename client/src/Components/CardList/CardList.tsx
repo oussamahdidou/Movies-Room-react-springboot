@@ -11,7 +11,7 @@ const CardList = () => {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const results = await TodayTrends(); // Call the TodayTrends function
+      const results = await TodayTrends("day"); // Call the TodayTrends function
       setMovies(results);
       setFiltredMovies(results)
       console.log('Fetched Movies:', results); // Log the fetched movies
