@@ -7,7 +7,6 @@ export const TodayTrends = async (Periode:string): Promise<Movie[]> => {
   try {
     console.log('API Key:', apiKey); 
     const response = await axios.get<any>(`https://api.themoviedb.org/3/trending/all/${Periode}?api_key=${apiKey}&page=1`);
-    console.log('API Response:', response.data);
     return response.data.results;
   } catch (error) {
     console.error('Error in TodayTrends:', error);
