@@ -1,28 +1,32 @@
 package com.stock.api.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.stock.api.dtos.favorites.CreateFavoritesDto;
+import com.stock.api.models.Favorits;
+import com.stock.api.services.favorites.IFavoritesService;
+
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
 @RequestMapping("/api/")
-
 public class FavoritesController {
-    @GetMapping("test")
-    public ResponseEntity<List<String>> getMethodName(@RequestParam String param) {
-        List<String> items = new ArrayList<String>();
-        for (int i = 0; i < 10; i++) {
-            items.add("paragraphe " + i);
-        }
+    private IFavoritesService favoritesService;
 
-        return ResponseEntity.ok(items);
+    public FavoritesController(IFavoritesService favoritesService) {
+        this.favoritesService = favoritesService;
+    }
+
+    @PostMapping("test")
+    public ResponseEntity<Favorits> getMethodName(@RequestBody CreateFavoritesDto createFavoritesDto) {
+        favoritesService.CreateFavorites(createFavoritesDto);
+
+        return ResponseEntity.ok(favoritesService.CreateFavorites(createFavoritesDto));
     }
 
 }
