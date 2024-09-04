@@ -5,7 +5,11 @@ import { ImageLink } from '../../Helpers/imageLink'
 
 
 const Card = (movie: Movie) => {
- const imageUrl =`${ImageLink}${movie.poster_path}`
+  const defaultPoster = `${process.env.PUBLIC_URL + "/img/defaultposter.png"}`; // Replace with the actual path to your default image
+
+const imageUrl = movie.poster_path ? `${ImageLink}${movie.poster_path}` : defaultPoster;
+
+ 
   
   return (
 

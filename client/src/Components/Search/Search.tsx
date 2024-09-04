@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import './Search.css';
+import { useNavigate } from 'react-router';
 type Props = {}
 
 const Search = (props: Props) => {
+  const navigate = useNavigate();
     const [search, setSearch] = useState<string>("");
     const SearchMovies = (): void => {
-
+        navigate(`/search?q=${search}`)
     }
 
     const handleQuery = (e:React.ChangeEvent<HTMLInputElement>)=>{

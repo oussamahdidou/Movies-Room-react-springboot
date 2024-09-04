@@ -5,11 +5,12 @@ import Card from './Components/Card/Card';
 import CardList from './Components/CardList/CardList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Pages/Home/Home';
+import { Outlet } from 'react-router';
 
 function App() {
   return (
     <div className="App">
-     <Home></Home>
+      <Outlet></Outlet>
     </div>
   );
 }
