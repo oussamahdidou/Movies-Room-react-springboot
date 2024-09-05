@@ -1,0 +1,61 @@
+.poster-container {
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.poster-img {
+    height: 100%;
+}
+
+.poster {
+    height: 100%;
+}
+
+.poster-img-container {
+    height: 100%;
+}
+
+.movie-title {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+}
+
+.movie-overview {
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+}
+
+
+
+.movie-button {
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 800;
+    background-color: #04c2f1;
+    color: rgb(5, 12, 29);
+    transition: box-shadow .3s ease;
+    box-shadow: 0 0 10px #04c2f1;
+}
+
+.movie-button:hover {
+    box-shadow: 0 0 20px #04c2f1;
+}
+
+.options {
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+}
+
+.adult {
+    background-color: red;
+    border-radius: 15px;
+}
+
+.line {
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    height: 25px;
+}

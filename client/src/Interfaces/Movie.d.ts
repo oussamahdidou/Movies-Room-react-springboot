@@ -97,8 +97,8 @@ export interface CrewMember {
 }
 export interface MovieCredits {
   id: number;
-  cast: CrewMember[];
-  crew: CastMember[];
+  cast: CastMember[];
+  crew: CrewMember[];
 }
 export interface MovieTrailer {
   iso_639_1: string;
