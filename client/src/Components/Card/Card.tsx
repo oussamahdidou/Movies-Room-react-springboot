@@ -14,7 +14,7 @@ const imageUrl = movie.poster_path ? `${ImageLink}${movie.poster_path}` : defaul
   
   return (
 
-      <Link to={`/movie/${movie.id}`} className="card d-flex flex-column justify-content-center align-align-items-center ">
+      <Link to={`/movie/${movie.id}`} className="card d-flex  justify-content-center align-align-items-center ">
         <img src={imageUrl} alt={movie.title || movie.name} className="img-fluid" />
       </Link>
    

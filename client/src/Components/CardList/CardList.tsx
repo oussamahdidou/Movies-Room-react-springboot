@@ -7,8 +7,7 @@ interface CardListProps {
   movies: Movie[];
 }
 const CardList = ({movies}:CardListProps) => {
-console.log("cardlist" );
-console.log(movies);
+
 
   return (
       <div className="container row mx-auto justify-content-center align-items-center pb-4">
