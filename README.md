@@ -14,7 +14,7 @@ Before you begin, ensure you have the following installed:
 
 
 ```
-git clone https://github.com/your-username/movies-room.git
+git clone https://github.com/oussamahdidou/Movies-Room-react-typescript.git
 ```
 - Navigate to the project directory:
   ```
